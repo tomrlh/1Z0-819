@@ -1,5 +1,8 @@
 package functionalprogramming;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import java.util.function.Predicate;
 import java.util.List;
@@ -51,8 +54,48 @@ public class Streams {
         System.out.println(list.stream().anyMatch(predicate));
     }
 
+    static void longStreamTest1() {
+        double result1 = LongStream.of(6L, 8L, 16L)
+                .mapToInt(x -> (int) x)
+                .boxed()
+                .collect(Collectors.groupingBy(x -> x))
+                .keySet()
+                .stream()
+                .collect(Collectors.averagingInt(x -> x));
+
+        double result2 = LongStream.of(6L, 8L, 16L)
+                .mapToInt(x -> (int) x)
+                .boxed()
+                .collect(Collectors.groupingBy(x -> x))
+                .keySet()
+                .stream()
+                .collect(Collectors.averagingInt(x -> x));
+
+        System.out.println(LongStream.of(6L, 8L, 16L)
+                .mapToInt(x -> (int) x)
+                .boxed()
+                .collect(Collectors.groupingBy(x -> x)));
+    }
+
+    static void sixth() {
+        var s = Stream.generate(() -> "meow");
+        var match = s.allMatch(String::isEmpty);
+        System.out.println(match);
+    }
+
+    static void fourteenth() {
+        Stream<Integer> s = Stream.of(1);
+        // IntStream is = s.boxed();
+    }
+
+    static void range() {
+        IntStream.range(1, 6)
+                .mapToObj(i -> i)
+                .forEach(System.out::println);
+    }
+
     public static void main(String[] args) {
-        anyMatchTest2();
+        range();
     }
 }
 

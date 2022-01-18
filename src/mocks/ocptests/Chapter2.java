@@ -34,7 +34,11 @@ public class Chapter2 {
         } while(v != 10);
     }
 
+    static void q18() {
+        for( ; ; ) {} // infinite loop
+    }
+
     public static void main(String[] args) {
-        q9();
+        q18();
     }
 }

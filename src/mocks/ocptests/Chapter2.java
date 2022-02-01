@@ -1,5 +1,6 @@
 package mocks.ocptests;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class Chapter2 {
